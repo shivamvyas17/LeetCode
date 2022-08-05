@@ -1,32 +1,31 @@
 class Solution {
     public void sortColors(int[] nums) {
-        int n=nums.length;
-        int f=0;
-        int s=0;
-        int t=0;
+   
+    //Dutch national Flag algo
         
-        for(int i=0;i<n;i++){
-            if(nums[i]==0){
-                f++;
+       int low =0;
+       int mid=0;
+       int high=nums.length-1;
+        
+        while(mid<=high){
+            if(nums[mid]==0){
+                swap(nums,low,mid);
+                low++;
+                mid++;
             }
-            else if(nums[i]==1){
-                s++;
+            else if(nums[mid]==1){
+                mid++;
             }
-            else
-                t++;
+            else{
+                swap(nums,high,mid);
+                high--;
+            }   
         }
-        
-        for(int i=0;i<f;i++){
-            
-            nums[i]=0;
-        }
-        for(int i=f;i<f+s;i++){
-            nums[i]=1;
-        }
-        for(int i=f+s;i<f+s+t;i++){
-            nums[i]=2;
-        }
-       
-        
+    }
+    
+    static void swap(int[]nums, int low , int high){
+        int temp=nums[low];
+        nums[low]=nums[high];
+        nums[high]=temp;
     }
 }
