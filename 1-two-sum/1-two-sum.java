@@ -8,7 +8,7 @@ class Solution {
             if(nums[s]+nums[e]==target){
                 arr[0]=s;
                 arr[1]=e;
-                break;
+                return arr;
             }
             if(e==n){
                 s++;
@@ -18,7 +18,6 @@ class Solution {
             e++;
         
         }
-        return arr;
-        
+        return arr;   
     }
 }
