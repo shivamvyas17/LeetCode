@@ -34,26 +34,23 @@ public class Main {
 
 class Solution {
     int print2largest(int arr[], int n) {
-        int l=Integer.MIN_VALUE;
-           int sl=Integer.MIN_VALUE;
-
-            for(int i=0;i<arr.length;i++)
-            {
-                if(arr[i]>l && arr[i]!=l)
-                {
-                    sl=l;
-                    l=arr[i];
-                }
-
-                if(arr[i]<l && arr[i] >sl)
-                {
-                    sl=arr[i];
-                }
+        
+        int largest = arr[0];
+        
+        int slargest  =  -1;
+        
+        for(int i=1;i<n;i++) {
+            
+            if(arr[i] >  largest) {
+                slargest = largest;
+                largest = arr[i];
             }
-            if(sl!=Integer.MIN_VALUE){
-            return sl;}
-            else{
-                return -1;
+            else if(arr[i] < largest && arr[i] > slargest) {
+                slargest = arr[i];
             }
+            
+        }
+        return slargest;
     }
+    
 }
