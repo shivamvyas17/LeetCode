@@ -15,20 +15,34 @@ class Solution {
             return head;
         }
         
-       ListNode prev  = null;
-       ListNode present = head;
-       ListNode next = present.next;
+//        ListNode prev  = null;
+//        ListNode present = head;
+//        ListNode next = present.next;
         
-        while(present !=null){
+//         while(present !=null){
             
-            present.next = prev;
-            prev = present;
-            present =next;
-            if(next!=null){
-            next = next.next;
+//             present.next = prev;
+//             prev = present;
+//             present =next;
+//             if(next!=null){
+//             next = next.next;
+//         }
+            
+//     }
+//         //head = prev;
+//         return prev;
+        
+        ListNode current = head;
+        ListNode previous = null;
+
+        while (current != null) {
+            ListNode next = current.next;
+            current.next = previous;
+            previous = current;
+            current = next;
         }
-            
-    }
-        //head = prev;
-        return prev;
+
+        return previous;
+    
+
 }}
