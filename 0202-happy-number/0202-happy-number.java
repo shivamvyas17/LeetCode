@@ -1,27 +1,26 @@
+
 class Solution {
-    public boolean isHappy(int n) {
-        
-        int slow = n;
-        int fast = n;
+    public boolean isHappy(int number) {
+        int slow = number;
+        int fast  = number;
         
         do{
-            slow = square(slow);
+            slow=square(slow);
             fast = square(square(fast));
-            
-            
-        }while(slow !=fast);
-        if(slow ==1){
-            return true;
-        }
-return false;
+        }while(slow!=fast);
+         
+            if(slow == 1){
+                return true;
+            }
+        return false;
     }
-    
-    private int square(int number ){
-        int ans =0;
+     public int square(int number){
+        int ans = 0;
+        
         while(number > 0){
-            int rem = number % 10;
+            int rem =  number %10;
             ans = ans + (rem * rem);
-            number = number/10;
+            number /=10;
         }
         return ans;
     }
