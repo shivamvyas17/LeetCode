@@ -2,17 +2,17 @@ class Solution:
     def asteroidCollision(self, asteroids: List[int]) -> List[int]:
          result = []
     
-         for asteroid in asteroids:
-            while result and asteroid < 0 and result[-1] > 0:
-                if abs(asteroid) > result[-1]:
+         for a in asteroids:
+            while result and a < 0 and result[-1] > 0:
+                if abs(a) > result[-1]:
                     result.pop()
-                elif abs(asteroid) == result[-1]:
+                elif abs(a) == result[-1]:
                     result.pop()
                     break
                 else:
                     break
             else:
-                result.append(asteroid)
+                result.append(a)
     
          return result
         
